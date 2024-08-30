@@ -12,7 +12,7 @@
     "build:images": "npm run build && docker build -t experiment-service -f apps/service/Dockerfile . && docker build -t experiment-nxcontainer -f apps/nxcontainer/Dockerfile .",
     "images:start": "docker run -p 3001:3001 --name experiment-service -d experiment-service && docker run -p 3000:3000 --name experiment-nxcontainer -d experiment-nxcontainer",
     "images:stop": "docker stop experiment-service && docker stop experiment-nxcontainer",
-    "compose:up": "docker compose up",
+    "compose:up": "npm run build && docker compose up --build",
     "compose:down": "docker compose down"
   },
   "private": true,
