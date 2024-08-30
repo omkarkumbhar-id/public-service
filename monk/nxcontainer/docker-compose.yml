@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  experiment-service:
+    build:
+      context: .
+      dockerfile: apps/service/Dockerfile
+    image: experiment-service
+    container_name: experiment-compose-service
+    ports:
+      - "3001:3001"
+
+  experiment-nxcontainer:
+    build:
+      context: .
+      dockerfile: apps/nxcontainer/Dockerfile
+    image: experiment-nxcontainer
+    container_name: experiment-compose-nxcontainer
+    ports:
+      - "3000:3000"
