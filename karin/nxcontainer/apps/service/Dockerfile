@@ -1,6 +1,6 @@
 # docker run -p 3001:3001 --name experiment-service -d experiment-service
 
-FROM docker.io/node:lts-alpine
+FROM node:lts-alpine
 
 ENV HOST=0.0.0.0
 ENV PORT=3001

@@ -1,0 +1,9 @@
+{
+  "name": "experiment-next-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/experiment-next-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["experiment-next"],
+  "// targets": "to see all targets run: nx show project experiment-next-e2e --web",
+  "targets": {}
+}

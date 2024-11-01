@@ -5,7 +5,7 @@ services:
       dockerfile: apps/service/Dockerfile
     image: experiment-service
     container_name: experiment-compose-service
-    network_mode: 'host'
+    pod: 'experiment-pod'
 
   experiment-nxcontainer:
     build:
@@ -13,10 +13,7 @@ services:
       dockerfile: apps/nxcontainer/Dockerfile
     image: experiment-nxcontainer
     container_name: experiment-compose-nxcontainer
-    environment:
-      HOST: localhost
-      PORT: 3000
-    network_mode: 'host'
+    pod: 'experiment-pod'
     depends_on:
       - experiment-service
 
@@ -26,8 +23,7 @@ services:
       dockerfile: apps/service-e2e/Dockerfile
     image: experiment-service-e2e
     container_name: experiment-container-service-e2e
-    network_mode: 'host'
-    # network_mode: 'container:experiment-compose-service'
+    pod: 'experiment-pod'
     depends_on:
       - experiment-service
 
@@ -37,11 +33,7 @@ services:
       dockerfile: apps/nxcontainer-e2e/Dockerfile
     image: experiment-nxcontainer-e2e
     container_name: experiment-container-nxcontainer-e2e
-    environment:
-      HOST: localhost
-      PORT: 3000
-    network_mode: 'host'
-    # network_mode: 'container:experiment-compose-nxcontainer'
+    pod: 'experiment-pod'
     depends_on:
       - experiment-nxcontainer
       - experiment-service-e2e
